@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply m-4 bg-black text-white;
+}
+
+@layer components {
+  .card {
+    @apply w-80 h-80 bg-gray-800 rounded-xl flex flex-col items-center justify-between border-black hover:border-lime-400 border-2;
+  }
+}
