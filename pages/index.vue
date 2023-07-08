@@ -1,17 +1,15 @@
-<script setup>
-const { data } = await useFetch("https://dummyjson.com/products");
-console.log(data.value.products);
-</script>
+<script setup></script>
 
 <template>
   <vitePwaManifest />
-  <h1 class="text-4xl mb-6 ml-9">Blog</h1>
-  <div class="flex flex-wrap gap-10 mt-5 ml-9">
-    <div v-for="product in data.products">
-      <NuxtLink :to="`/${product.id}`" class="card">
-        <BlogCard :product="product" />
-      </NuxtLink>
-    </div>
+  <div class="flex flex-col gap-12 items-center justify-center h-screen -m-4">
+    <h1 class="text-6xl">Welcome to Mahran's shopping application</h1>
+    <span class="text-sm">Best Prices in this market</span>
+    <NuxtLink
+      to="/home"
+      class="bg-gray-500 px-16 py-4 rounded-full text-white mt-16 hover:bg-gray-400"
+      >Start Shoping Now</NuxtLink
+    >
   </div>
 </template>
 
