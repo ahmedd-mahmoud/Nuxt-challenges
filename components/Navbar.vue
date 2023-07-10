@@ -22,6 +22,7 @@ const isCartPath = computed(() => {
       <img src="../assets/icons/ion_cart.svg" alt="cart" />
       <div
         class="bg-green-400 w-1/3 rounded-full flex justify-center absolute bottom-0 right-0"
+        v-if="idsAndCounts.length > 0"
       >
         {{ idsAndCounts.length }}
       </div>

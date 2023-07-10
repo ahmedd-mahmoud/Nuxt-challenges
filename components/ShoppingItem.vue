@@ -7,7 +7,6 @@ const props = defineProps({
 const products = useProducts();
 const idsAndCounts = useProductIdAndCount();
 const count = ref(0);
-const lastIndexOfArray = ref(0);
 
 const handleAdd = (id) => {
   count.value++;
@@ -16,7 +15,7 @@ const handleAdd = (id) => {
     count: count.value,
     price: props.product.price,
   });
-  lastIndexOfArray.value = idsAndCounts.value.length - 1;
+
   products.value.forEach((product) => {
     if (id === product.id) {
       product.count = count.value;
