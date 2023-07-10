@@ -1,6 +1,6 @@
 <script setup>
 const query = ref(null);
-
+const idsAndCounts = useProductIdAndCount();
 const route = useRoute().path;
 const isCartPath = computed(() => {
   return route === "/cart" ? true : false;
@@ -8,7 +8,9 @@ const isCartPath = computed(() => {
 </script>
 
 <template>
-  <div class="flex justify-between items-center mx-4 mt-4 mb-16">
+  <div
+    class="w-full flex justify-between items-center py-4 mb-16 bg-white border-b-2 sticky top-0"
+  >
     <NuxtLink to="/">Mahran's Shop</NuxtLink>
     <input
       v-model="query"
@@ -16,9 +18,14 @@ const isCartPath = computed(() => {
       class="rounded-3xl bg-gray-200 border-2 border-gray-400 w-1/4 px-4 py-3 mx-auto"
       @change="$emit('search', query)"
     />
-    <NuxtLink v-show="!isCartPath" to="/cart"
-      ><img src="../assets/icons/ion_cart.svg" alt="cart"
-    /></NuxtLink>
+    <NuxtLink v-show="!isCartPath" to="/cart" class="relative">
+      <img src="../assets/icons/ion_cart.svg" alt="cart" />
+      <div
+        class="bg-green-400 w-1/3 rounded-full flex justify-center absolute bottom-0 right-0"
+      >
+        {{ idsAndCounts.length }}
+      </div>
+    </NuxtLink>
   </div>
 </template>
 

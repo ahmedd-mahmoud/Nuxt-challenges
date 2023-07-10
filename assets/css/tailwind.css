@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply m-4;
+  @apply px-4 pb-4;
 }
 
 @layer components {
