@@ -8,6 +8,12 @@ const products = useProducts();
 const idsAndCounts = useProductIdAndCount();
 const count = ref(0);
 
+idsAndCounts.value.forEach((idAndCount) => {
+  if (props.product.id === idAndCount.id) {
+    count.value = idAndCount.count;
+  }
+});
+
 const handleAdd = (id) => {
   count.value++;
   idsAndCounts.value.push({
